@@ -15,6 +15,7 @@ public class Main {
 				dhKeySimulate.generateParams(bitLen);
 			} else {
 				showUsage();
+				return;
 			}
 		} else {
 			dhKeySimulate.scanParams();
@@ -25,6 +26,6 @@ public class Main {
 
 	private static void showUsage() {
 		System.err.print("DHKeySimulate usage: ");
-		System.err.println("-gen bitLen[512,1024,2048]");
+		System.err.println("-gen bitLen[512, 1024, 2048]");
 	}
 }
