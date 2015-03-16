@@ -1,3 +1,5 @@
+package dhk;
+
 import javax.crypto.spec.DHParameterSpec;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,14 +16,14 @@ import java.util.Scanner;
  */
 
 public class DHKeySimulate {
-	private Value base = new Value("Base:");
-	private Value mod = new Value("Mod:");
-	private Value alicePrKey = new Value("Alice's private key:");
-	private Value alicePubKey = new Value("Alice's public key:");
-	private Value bobPrKey = new Value("Bob's private key:");
-	private Value bobPubKey = new Value("Bob's public key:");
-	private Value aliceSharedKey = new Value("Alice's shared key:");
-	private Value bobSharedKey = new Value("Bob's shared key:");
+	private Value<BigInteger> base = new Value<BigInteger>("Base:");
+	private Value<BigInteger> mod = new Value<BigInteger>("Mod:");
+	private Value<BigInteger> alicePrKey = new Value<BigInteger>("Alice's private key:");
+	private Value<BigInteger> alicePubKey = new Value<BigInteger>("Alice's public key:");
+	private Value<BigInteger> bobPrKey = new Value<BigInteger>("Bob's private key:");
+	private Value<BigInteger> bobPubKey = new Value<BigInteger>("Bob's public key:");
+	private Value<BigInteger> aliceSharedKey = new Value<BigInteger>("Alice's shared key:");
+	private Value<BigInteger> bobSharedKey = new Value<BigInteger>("Bob's shared key:");
 
 	public void exportData() throws FileNotFoundException {
 		exportData(null);

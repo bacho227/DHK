@@ -17,7 +17,7 @@ public class RowVector extends Matrix {
 		return super.getAt(0, index);
 	}
 
-	public RowVector multipleToMatrix1(Matrix matrix) throws Exception {
+	public RowVector multipleToMatrix(Matrix matrix) throws Exception {
 		return new RowVector(super.multipleToMatrix(matrix).getRow(0));
 	}
 }

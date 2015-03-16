@@ -30,7 +30,7 @@ public class Matrix {
 		Random randomGenerator = new Random();
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < column; j++) {
-				value[i][j] = (int) randomGenerator.nextInt(2);
+				value[i][j] = randomGenerator.nextInt(2);
 			}
 		}
 	}

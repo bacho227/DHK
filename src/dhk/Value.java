@@ -1,14 +1,15 @@
-import java.math.BigInteger;
+package dhk;
+
 import java.text.DecimalFormat;
 
 /**
  * Created by Bacho on 2/25/15.
  */
 
-public class Value {
+public class Value<T> {
 	private static int maxTextLength;
 	private String text;
-	private BigInteger value;
+	private T value;
 	private long start;
 	private long end;
 
@@ -37,7 +38,7 @@ public class Value {
 		this.start = System.nanoTime();
 	}
 
-	public void setValue(BigInteger value) {
+	public void setValue(T value) {
 		this.value = value;
 		this.end = System.nanoTime();
 	}
@@ -46,7 +47,7 @@ public class Value {
 		return text;
 	}
 
-	public BigInteger getValue() {
+	public T getValue() {
 		return value;
 	}
 }

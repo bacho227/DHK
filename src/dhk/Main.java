@@ -1,3 +1,5 @@
+package dhk;
+
 import java.io.File;
 
 /**
@@ -25,7 +27,7 @@ public class Main {
 	}
 
 	private static void showUsage() {
-		System.err.print("DHKeySimulate usage: ");
+		System.err.print("dhk.DHKeySimulate usage: ");
 		System.err.println("-gen bitLen[512, 1024, 2048]");
 	}
 }
