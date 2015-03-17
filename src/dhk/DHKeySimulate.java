@@ -54,23 +54,23 @@ public class DHKeySimulate {
 	public void run() throws Exception {
 
 		alicePubKey.setStart();
-		BigInteger temp = base.getValue().modPow(alicePrKey.getValue(), mod.getValue());
-		alicePubKey.setValue(temp);
+		BigInteger temp1 = base.getValue().modPow(alicePrKey.getValue(), mod.getValue());
+		alicePubKey.setValue(temp1);
 		System.out.println("Calculated Alice's public key in " + alicePubKey.getMillisecond() + " milliseconds!");
 
 		bobPubKey.setStart();
-		temp = base.getValue().modPow(bobPrKey.getValue(), mod.getValue());
-		bobPubKey.setValue(temp);
+		BigInteger temp2 = base.getValue().modPow(bobPrKey.getValue(), mod.getValue());
+		bobPubKey.setValue(temp2);
 		System.out.println("Calculated Bobs's public key in " + bobPubKey.getMillisecond() + " milliseconds!");
 
 		aliceSharedKey.setStart();
-		temp = bobPubKey.getValue().modPow(alicePrKey.getValue(), mod.getValue());
-		aliceSharedKey.setValue(temp);
+		BigInteger temp3 = bobPubKey.getValue().modPow(alicePrKey.getValue(), mod.getValue());
+		aliceSharedKey.setValue(temp3);
 		System.out.println("Calculated Alice's shared key in " + aliceSharedKey.getMillisecond() + " milliseconds!");
 
 		bobSharedKey.setStart();
-		temp = alicePubKey.getValue().modPow(bobPrKey.getValue(), mod.getValue());
-		bobSharedKey.setValue(temp);
+		BigInteger temp4 = alicePubKey.getValue().modPow(bobPrKey.getValue(), mod.getValue());
+		bobSharedKey.setValue(temp4);
 		System.out.println("Calculated Bobs's shared key in " + bobSharedKey.getMillisecond() + " milliseconds!");
 	}
 
