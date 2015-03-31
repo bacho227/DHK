@@ -6,6 +6,7 @@ import java.util.Random;
  * Created by Bacho on 3/4/15.
  */
 public class Matrix {
+	private final int size;
 	private final int column;
 	private final int row;
 	private final int[][] value;
@@ -13,12 +14,14 @@ public class Matrix {
 	Matrix(int[][] matrix) {
 		this.row = matrix.length;
 		this.column = matrix[0].length;
+		this.size = matrix[0].length;
 		value = matrix;
 	}
 
 	Matrix(int row, int column) {
 		this.row = row;
 		this.column = column;
+		this.size = column;
 		value = new int[row][column];
 	}
 
@@ -67,8 +70,8 @@ public class Matrix {
 			System.out.print("\n");
 		}
 	}
-//	public int[] multipleToMatrix(Matrix matrix) {
-//		int[][] res = multipleToMatrix(matrix);
-//	}
 
+	public int getSize() {
+		return size;
+	}
 }

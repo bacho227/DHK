@@ -2,6 +2,7 @@ package matrix;
 
 
 import java.io.File;
+import java.util.BitSet;
 
 /**
  * Created by Bacho on 3/16/15.
@@ -12,5 +13,10 @@ public class Main {
 		simulate.generateParams();
 		simulate.run();
 		simulate.exportData(new File("matrix.txt"));
+
+		simulate.runXor();
+		simulate.exportData(new File("matrixXor.txt"));
+		BitSet bitSet;
+
 	}
 }

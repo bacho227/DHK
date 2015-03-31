@@ -8,10 +8,10 @@ import java.text.DecimalFormat;
  */
 public class Main {
 	public static void main(String args[]) throws Exception {
-		BinaryMatrix binaryMatrix = new BinaryMatrix(2);
+		BinaryMatrix binaryMatrix = new BinaryMatrix(100);
 		binaryMatrix.generateRandom();
-		BinaryVector binaryVector = new BinaryVector(2);
-		BigInteger base = new BigInteger("00000000000000000000000");
+		BinaryVector binaryVector = new BinaryVector(100);
+		BigInteger base = new BigInteger("0");
 		long start = System.nanoTime();
 		for (int i = 0; i < binaryVector.getSize(); i++) {
 			if (binaryVector.testAt(i)) {
@@ -22,6 +22,6 @@ public class Main {
 		DecimalFormat df = new DecimalFormat("0.000000");
 		double diff = (double) (System.nanoTime() - start) / 1000000;
 		System.out.println(df.format(diff));
-		System.out.println(base.toString(2));
+		System.out.println(base + "  " + base.toString(2));
 	}
 }

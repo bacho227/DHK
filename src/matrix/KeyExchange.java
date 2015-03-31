@@ -10,7 +10,7 @@ import java.io.PrintStream;
  * Created by Bacho on 3/4/15.
  */
 public class KeyExchange {
-	private static final int size = 100;
+	private static final int size = 1000;
 	private Value<RowVector> base = new Value<RowVector>("Base:");
 	private Value<Matrix> alicePubKey = new Value<Matrix>("Alice's public key:");
 	private Value<RowVector> alicePrKey = new Value<RowVector>("Alice's private key:");
@@ -65,6 +65,30 @@ public class KeyExchange {
 		bobSharedKey.setValue(k2);
 		System.out.println("Calculated Bobs's shared key in " + bobSharedKey.getMillisecond() + " milliseconds!");
 	}
+
+	public void runXor() throws Exception {
+		alicePrKey.setStart();
+		RowVector u1 = base.getValue().xor(alicePubKey.getValue());
+		alicePrKey.setValue(u1);
+		System.out.println("Calculated Alice's private key in " + alicePrKey.getMillisecond() + " milliseconds!");
+
+		bobPrKey.setStart();
+		RowVector u2 = base.getValue().xor(bobPubKey.getValue());
+		bobPrKey.setValue(u2);
+		System.out.println("Calculated Bobs's private key in " + bobPrKey.getMillisecond() + " milliseconds!");
+
+		aliceSharedKey.setStart();
+		RowVector k1 = alicePrKey.getValue().xor(bobPubKey.getValue());
+		aliceSharedKey.setValue(k1);
+		System.out.println("Calculated Alice's shared key in " + aliceSharedKey.getMillisecond() + " milliseconds!");
+
+		bobSharedKey.setStart();
+		RowVector k2 = bobPrKey.getValue().xor(alicePubKey.getValue());
+		bobSharedKey.setValue(k2);
+		System.out.println("Calculated Bobs's shared key in " + bobSharedKey.getMillisecond() + " milliseconds!");
+		bobSharedKey.getValue().print();
+	}
+
 
 	public void generateParams() throws Exception {
 		base.setStart();
